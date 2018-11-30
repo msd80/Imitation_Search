@@ -8,12 +8,14 @@ import Yelp from './util/Yelp';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.setState({ businesses: [] });
-    this.searchYelp.bind(this);
+    this.state = {
+      businesses: [] 
+    };
+    this.searchYelp = this.searchYelp.bind(this);
   }
 
   searchYelp(term, location, sortBy) {
-    Yelp.search(term, location, sortBy).then((businesses) => {
+    Yelp.searchYelp(term, location, sortBy).then((businesses) => {
       this.setState({ businesses: businesses });
     });
   }
@@ -23,7 +25,7 @@ class App extends Component {
       <div className="app">
         <h1>YELP CLONE</h1>
         <SearchBar searchYelp={this.searchYelp}/>
-        <BusinessList businesses={this.state.businesses} />
+        {this.state.businesses && <BusinessList businesses={this.state.businesses} />}
       </div>
     );
   }

@@ -24,7 +24,7 @@ class Business extends React.Component {
         <div className="Business-information">
           <div className="Business-address">
             <p>{this.props.business.address}</p>
-            <p>Bordertown</p>
+            <p>{this.props.business.city}</p>
             <p>{this.props.business.state} {this.props.business.zipCode}</p>
           </div>
           <div className="Business-reviews">
