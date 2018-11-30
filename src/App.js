@@ -3,12 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import BusinessList from './components/BusinessList/BusinessList.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
-import { Yelp } from './util/Yelp.js';
+import Yelp from './util/Yelp';
 
 class App extends Component {
-  constructor() {
-    this.state = { businesses: [] };
-    this.searchYelp = this.searchYelp.bind(this);
+  constructor(props) {
+    super(props);
+    this.setState({ businesses: [] });
+    this.searchYelp.bind(this);
   }
 
   searchYelp(term, location, sortBy) {
